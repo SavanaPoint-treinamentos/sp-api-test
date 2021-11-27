@@ -57,7 +57,7 @@ export const delProduct = async(req, res) => {
     const { _id } = req.params;
 
    try {
-    const response = await Product.deleteOne({_id});
+     await Product.deleteOne({_id});
     return res.json({success_msg: 'deleted'})
    } catch (error) {
        

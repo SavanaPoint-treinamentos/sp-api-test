@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import express from 'express';
-import cors from 'express';
+import cors from 'cors';
 import morgan from 'morgan';
 import { connection } from './mongodb';
 import { router } from './routes';

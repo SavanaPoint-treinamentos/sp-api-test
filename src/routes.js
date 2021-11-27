@@ -6,7 +6,7 @@ const router = Router();
 router.get('/products', index);
 router.get('/products/:_id', getOne);
 router.post('/products', create);
-router.put('/products', update);
+router.put('/products/:_id', update);
 router.delete('/products/:_id', delProduct)
 
 export { router };

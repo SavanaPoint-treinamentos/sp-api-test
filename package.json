@@ -12,6 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/FaztWeb/company-products-api.git"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "keywords": [],
   "author": "Fazt",
   "license": "ISC",

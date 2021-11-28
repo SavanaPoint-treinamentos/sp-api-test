@@ -3,7 +3,7 @@ import { Product } from '../models/Product';
 
 export const index = async (_, res) => {
    try {
-    const produ = await Product.find();
+    const produ = await Product.find().sort({'createdAt': 'desc'});
     
     return res.json(produ)
    } catch (error) {

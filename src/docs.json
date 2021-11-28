@@ -1,5 +1,6 @@
 {
  "openapi": "3.0.0",
+ "title": "SavanaPoint",
  "info": {
      "title": "Products Api test",
      "description": "Esta API é para testes durante o treinamento",
@@ -27,7 +28,7 @@
      "/products": {
          
          "get": {
-            "summary":"Cadastro de produto",
+            "summary":"Buscar produtos",
             "description": "Essa rota tem a função de cadastrar produto",
             "tags": ["Products"],
             "responses": {
@@ -95,7 +96,7 @@
 
      "/products/{_id}": {
         "get": {
-           "summary":"Buscar produto",
+           "summary":"Buscar um produto",
            "description": "Essa rota tem a função de buscar produto pelo id",
            
            "parameters": [
@@ -123,18 +124,39 @@
            }
         },
 
-        "put": {
-            "summary":"Buscar produto",
-            "description": "Essa rota tem a função de buscar produto pelo id",
-            
+        "put":  {
+            "summary":"Atualizar o produto",
+            "description": "Essa rota tem a função de atualizar produto",
+            "tags": ["Products"],
             "parameters": [
                 {
                     "name": "_id",
-                    "description": "Busque o produto usando id",
+                    "description": "Atualize o produto usando id",
                     "in": "path",
                     "required": true
                 }
             ],
+            "requestBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                           "$ref": "#/components/schemas/Product"
+                        },
+
+                        "examples": {
+                            "product": {
+                                "value": {
+                                   "name": "Calça Jeans",
+                                   "imageURL": "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1026&q=80",
+                                   "price": "1200",
+                                   "description": "Essa calça é versatil, ela te deixa com estilo"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+
             "responses": {
                 "200": {
                     "description": "OK",
@@ -150,16 +172,16 @@
                     }
                 }
             }
-         },
+        },
 
          "delete": {
-            "summary":"Buscar produto",
-            "description": "Essa rota tem a função de buscar produto pelo id",
+            "summary":"Apagar produto",
+            "description": "Essa rota tem a função de apagar produto pelo id",
             
             "parameters": [
                 {
                     "name": "_id",
-                    "description": "Busque o produto usando id",
+                    "description": "Apague o produto usando id",
                     "in": "path",
                     "required": true
                 }

@@ -13,7 +13,12 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
 app.use('/api', router);
-app.use('/', swaggerUi.serve, swaggerUi.setup(Docs))
+const options = {
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: "SavanaPoint Docs",
+  customfavIcon: "/assets/favicon.ico"
+};
+app.use('/', swaggerUi.serve, swaggerUi.setup(Docs, options))
 const port = process.env.PORT || 2812;
 connection();
 app.listen(port, () => console.log(`Server on http://localhost:${port}`))
